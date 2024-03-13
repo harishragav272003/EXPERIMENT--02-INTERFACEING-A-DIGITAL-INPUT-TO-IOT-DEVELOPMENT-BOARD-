@@ -1,15 +1,17 @@
-###  DATE: 
+```
+##  NAME: HARISH RAGAV S
+##  REG NO :212222110013
+```
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
 
 
 # EXPERIMENT--02-INTERFACING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-
  
 
-## Aim: To Interface a Digital Input  (IR pair ) to ARM IOT development board and write a  program to obtain  the data 
-## Components required: STM32 CUBE IDE, ARM IOT development board,  STM programmer tool.
+## Aim: 
+To Interface a Digital Input  (IR pair ) to ARM IOT development board and write a  program to obtain  the data 
+## Components required:
+STM32 CUBE IDE, ARM IOT development board,  STM programmer tool.
 ## Theory 
 The full form of an ARM is an advanced reduced instruction set computer (RISC) machine, and it is a 32-bit processor architecture expanded by ARM holdings. The applications of an ARM processor include several microcontrollers as well as processors. The architecture of an ARM processor was licensed by many corporations for designing ARM processor-based SoC products and CPUs. This allows the corporations to manufacture their products using ARM architecture. Likewise, all main semiconductor companies will make ARM-based SOCs such as Samsung, Atmel, TI etc.
 
@@ -77,12 +79,39 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 
 ## STM 32 CUBE PROGRAM :
+```
+#include "main.h"
+#include"stdbool.h"
+bool IRSENSOR;
+void irpair();
+ while (1)
+  {
+	  irpair();
+  }
 
+void irpair()
+{
+	IRSENSOR=HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_4);
+	if(IRSENSOR==0)
+	{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,RESET);
+		HAL_Delay(1000);
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,SET);
+				HAL_Delay(1000);
+	}
+	else{
+		HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,RESET);
+			 HAL_Delay(1000);
+	}
 
+}
+```
 
 ## Output  :
- 
- 
+ ![308906904-67a86fa3-e9ad-4c90-a8c9-7657a13d9ac3](https://github.com/ganeshprabhu2005/EXPERIMENT--02-INTERFACEING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/146162190/055a6eb7-ce3e-43e4-b42f-9e224dfadf85)
+![308906923-9bacef2d-a12f-49e8-94c7-8b24e2e73c43](https://github.com/ganeshprabhu2005/EXPERIMENT--02-INTERFACEING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-/assets/146162190/6d74e01b-deb0-4cde-ba3b-89ef01d12a89)
+
+
  
  
 ## Result :
